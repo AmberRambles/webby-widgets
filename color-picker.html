@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+</head>
+<body>
+    
+    <div class="color-picker">
+        <label for = "bgColorPicker">Choose a color for the background:</label>
+        <input type="color" id="bgColorPicker" name="bgColorPicker">
+        <p id="bgColorValue">Selected Background Color: </p>
+    </div>
+<script>
+    document
+        .getElementById("bgColorPicker")
+        .addEventListener("input", function(event) {
+            document.body.style.backgroundColor = event.target.value;
+            document.getElementById("bgColorValue").innerText = "Selected Background Color: " + event.target.value;
+        });
+</script>
+</body>
+</html>
