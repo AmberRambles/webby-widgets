@@ -31,8 +31,28 @@ output{
 <body>
     <h1>Dice Roller</h1>
     <output id="output"></output>
-    <br />
-    <button onclick="roll6()">Roll a D6</button>
+    <fieldset style="margin: 10px; padding: 10px; border: 2px solid green;">
+        <legend>Dice</legend>
+        <input type="radio" name="die" id="2">
+        <label for="2">2</label>
+        <input type="radio" name="die" id="3">
+        <label for="3">3</label>
+        <input type="radio" name="die" id="4">
+        <label for="4">4</label> <br />
+        <input type="radio" name="die" id="6" checked>
+        <label for="6">6</label>
+        <input type="radio" name="die" id="8">
+        <label for="8">8</label>
+        <input type="radio" name="die" id="10">
+        <label for="10">10</label> <br />
+        <input type="radio" name="die" id="12">
+        <label for="12">12</label>
+        <input type="radio" name="die" id="20">
+        <label for="20">20</label>
+        <input type="radio" name="die" id="100">
+        <label for="100">100</label> <br />
+        <button id="rollBtn" onclick="roll()">Roll</button>
+    </fieldset>
 <script>
     function rollDie(numFaces) {
     // Ensure numFaces is a positive integer
@@ -46,8 +66,16 @@ output{
     return result;
 }
 
-function roll6() {
-    document.getElementById("output").innerHTML = rollDie(6)
+function roll() {
+    // Get the selected die from the radio buttons
+    var selectedDie = document.querySelector('input[name="die"]:checked');
+    if (!selectedDie) {
+        alert("Please select a die to roll.");
+        return;
+    }
+
+    var numFaces = parseInt(selectedDie.id, 10); // Get the number of faces from the selected radio button
+    document.getElementById("output").innerHTML = rollDie(numFaces); // Roll the die and display the result
 }
 </script>
 </body>
