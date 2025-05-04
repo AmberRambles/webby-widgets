@@ -6,13 +6,23 @@
     <title>Color Picker</title>
 </head>
 <body>
-    
+    <div class="color-picker">
+        <label for = "fgColorPicker">Choose a color for the foreground:</label>
+        <input type="color" id="fgColorPicker" name="fgColorPicker">
+        <p id="fgColorValue">Selected Foreground Color: </p>
+    </div>
     <div class="color-picker">
         <label for = "bgColorPicker">Choose a color for the background:</label>
         <input type="color" id="bgColorPicker" name="bgColorPicker">
         <p id="bgColorValue">Selected Background Color: </p>
     </div>
 <script>
+    document
+    .getElementById("fgColorPicker")
+        .addEventListener("input", function(event) {
+            document.body.style.color = event.target.value;
+            document.getElementById("fgColorValue").innerText = "Selected Foreground Color: " + event.target.value;
+        });
     document
         .getElementById("bgColorPicker")
         .addEventListener("input", function(event) {
