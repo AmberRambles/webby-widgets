@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,12 +41,27 @@ output{
     overflow-y: scroll; /* Allow scrolling if the content exceeds the max height */
     font-size: 0.75rem; /* Make the log text smaller for better readability */
 }
+
+.style-switcher{
+    button{
+        margin: 5px;
+        height: 30px;
+        width: 75px;
+        font-size: 0.75rem;
+    }
+}
     </style>
 </head>
 <body>
     <header>
         <h1>Dice Roller</h1>
     </header>
+    <section class="style-switcher">
+        <!-- Style switcher -->
+         <h3>Style Switcher</h3>
+         <button onclick="document.getElementById('html').setAttribute('style', 'background-color: black; color: green;')">Default</button>
+         <button onclick="document.getElementById('html').setAttribute('style', 'background-color: #5b005b; color: #ff51ff;')">Plum</button>
+    </section>
     <main>
         <p>Select a die and click "Roll" to generate a random number.</p>
         <output id="output"></output>
@@ -109,7 +124,7 @@ function roll() {
 }
 </script>
 <footer>
-    <p>&copy;2025 Amber Shifflett</p>
+    <p>&copy;2026 Amber Shifflett</p>
 </footer>
 </body>
 </html>
